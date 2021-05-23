@@ -1,6 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { NavigationBar } from './trader/navigationBar';
+import { BottomBar } from './trader/bottomNav';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+
 export const MainPage = (props:any) => {
 
   const classes = useStyles();  
@@ -27,6 +29,8 @@ export const MainPage = (props:any) => {
               hello there! I am using a grid material ui. 
           </Grid>
         </Grid>
+
+        <BottomBar></BottomBar>
       </div>
     );
   }
