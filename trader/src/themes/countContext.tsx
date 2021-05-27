@@ -36,6 +36,7 @@ export const TipBar = () => {
         <> 
         <div>
             <p> Head Bar {userDetails.first} </p>
+            <p> Head Bar {userDetails.last} </p>
         </div>
         </>
     );

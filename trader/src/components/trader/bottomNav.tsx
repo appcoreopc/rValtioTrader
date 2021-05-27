@@ -1,12 +1,6 @@
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,19 +40,8 @@ export const BottomBar = () => {
     return (
      <>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
-        <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="open drawer">
-            <MenuIcon />
-          </IconButton>
           
-          <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
-          <IconButton edge="end" color="inherit">
-            <MoreIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+       </AppBar>
      </>
     );
   }

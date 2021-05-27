@@ -35,7 +35,7 @@ export const NavigationBar = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              News
+              Branding Page 
             </Typography>
             <Button color="inherit">Login</Button>
           </Toolbar>
