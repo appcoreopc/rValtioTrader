@@ -26,7 +26,6 @@ export const MainPage = (props:any) => {
         <NavigationBar />
         <Grid container spacing={3}>
           <Grid item xs={12}>
-              hello there! I am using a grid material ui. 
               <Page />
           </Grid>
         </Grid>
