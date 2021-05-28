@@ -1,19 +1,21 @@
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import React, { Suspense, lazy } from 'react';
-import SaveIcon from '@material-ui/icons/Save';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import React, { Suspense, lazy, useState } from 'react';
 import { useStyles } from './style';
+import Button from '@material-ui/core/Button';
+import ZoomInIcon from '@material-ui/icons/ZoomIn';
 
 export const ZoomButton = () => {
     const classes = useStyles();
+    const [enabled, setActive] = useState(false);
   
     return (
       <>
-        <SaveIcon className={classes.toolBarButton} onClick={() => { alert('click')}}/>
+       <Button disabled={enabled}
+        variant="contained"
+        color="primary"
+        size="small"
+        className={classes.menuButton} onClick={() => { alert('clicked') }}
+        startIcon={<ZoomInIcon />}>Zoom</Button>
       </>
     );
   }

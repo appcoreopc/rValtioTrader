@@ -5,8 +5,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import React, { Suspense, lazy } from 'react';
-import SaveIcon from '@material-ui/icons/Save';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import { SaveButton } from '../toolbar/saveButton';
+import { BuildButton } from '../toolbar/buildButton';
+import { ZoomButton }  from '../toolbar/zoomButton';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,10 +36,10 @@ export const NavigationBar = () => {
           <Toolbar >
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
-
-              <SaveIcon className={classes.toolBarButton} onClick={() => { alert('click')}}/>
-              <PlayArrowIcon className={classes.toolBarButton}/>
             </IconButton>
+            <SaveButton></SaveButton>
+            <BuildButton></BuildButton>
+            <ZoomButton></ZoomButton>
           </Toolbar>
         </AppBar>
       </div>
