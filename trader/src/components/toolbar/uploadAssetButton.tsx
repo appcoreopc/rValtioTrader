@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '../../store/toolbarSlicer';
 
-export const BuildButton = () => {
+export const UploadAssetButton = () => {
     
     const classes = useStyles();
     const [enabled, setActive] = useState(false);
-
-    const count = useSelector((state) => state);
-    const dispatch = useDispatch();
-   
-    console.log("data");
-    console.log(count);
     
     return (
       <>
@@ -23,7 +15,7 @@ export const BuildButton = () => {
         color="primary"
         size="small"
         className={classes.menuButton} onClick={() => { alert('clicked') }}
-        startIcon={<PlayArrowIcon />}>Build</Button>
+        startIcon={<CloudUploadIcon />}>Upload</Button>
       </>
     );
   }

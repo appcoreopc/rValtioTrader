@@ -8,7 +8,7 @@ import React, { Suspense, lazy } from 'react';
 import { SaveButton } from '../toolbar/saveButton';
 import { BuildButton } from '../toolbar/buildButton';
 import { ZoomButton }  from '../toolbar/zoomButton';
-
+import { UploadAssetButton }  from '../toolbar/uploadAssetButton';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,6 +40,7 @@ export const NavigationBar = () => {
             <SaveButton></SaveButton>
             <BuildButton></BuildButton>
             <ZoomButton></ZoomButton>
+            <UploadAssetButton></UploadAssetButton>
           </Toolbar>
         </AppBar>
       </div>
