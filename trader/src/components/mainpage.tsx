@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { NavigationBar } from './trader/navigationBar';
 import { BottomBar } from './trader/bottomNav';
 import { Page } from '../themes/countContext';
+import { ErrorBoundary } from "./boundary/errorBoundary";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,6 +24,8 @@ export const MainPage = (props:any) => {
   const classes = useStyles();  
     return (
       <div className={classes.root}>
+        <ErrorBoundary>
+
         <NavigationBar />
         <Grid container spacing={3}>
           <Grid item xs={12}>
@@ -31,6 +34,9 @@ export const MainPage = (props:any) => {
         </Grid>
 
         <BottomBar></BottomBar>
+
+        </ErrorBoundary>
+      
       </div>
     );
   }
