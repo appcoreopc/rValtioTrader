@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
+import { ToolBarButtonsState } from './toolBarButtonsState';
 
-export const UploadAssetButton = () => {
+export const UploadAssetButton : React.FC<ToolBarButtonsState>= ({data}) => {
     
     const classes = useStyles();
     const [enabled, setActive] = useState(false);

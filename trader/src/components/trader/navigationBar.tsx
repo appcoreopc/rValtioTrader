@@ -9,6 +9,7 @@ import { SaveButton } from '../toolbar/saveButton';
 import { BuildButton } from '../toolbar/buildButton';
 import { ZoomButton }  from '../toolbar/zoomButton';
 import { UploadAssetButton }  from '../toolbar/uploadAssetButton';
+import { useAppSelector, useAppDispatch } from '../../store/hook';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,8 +29,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const NavigationBar = () => {
+
     const classes = useStyles();
-  
+    const toolbarState = useAppSelector((state) => state.toolBar)
+    const dispatch = useAppDispatch()
+    console.log(toolbarState);
+
     return (
       <div className={classes.root}>
         <AppBar position="static">
@@ -37,10 +42,10 @@ export const NavigationBar = () => {
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <SaveButton></SaveButton>
-            <BuildButton></BuildButton>
-            <ZoomButton></ZoomButton>
-            <UploadAssetButton></UploadAssetButton>
+            <SaveButton data={toolbarState.toolbar}></SaveButton>
+            <BuildButton data={toolbarState.toolbar}></BuildButton>
+            <ZoomButton data={toolbarState.toolbar}></ZoomButton>
+            <UploadAssetButton data={toolbarState.toolbar}></UploadAssetButton>
           </Toolbar>
         </AppBar>
       </div>

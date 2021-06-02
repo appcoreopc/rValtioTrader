@@ -5,16 +5,13 @@ import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../../store/toolbarSlicer';
 import { useAppSelector, useAppDispatch } from '../../store/hook';
+import { ToolBarButtonsState } from './toolBarButtonsState';
 
-export const SaveButton = () => {
+export const SaveButton: React.FC<ToolBarButtonsState> = ({data}) => {
 
     const classes = useStyles();
     const [enabled, setActive] = useState(false);
     
-    //const count = useSelector((state) => state);
-    //const dispatch = useDispatch();
-
-    const count = useAppSelector((state) => state.toolBar.value)
     const dispatch = useAppDispatch()
 
     return (

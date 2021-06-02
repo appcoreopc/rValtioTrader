@@ -5,9 +5,7 @@ const user =  {
     "last" : "woo`"
 }
 
-
 const MyContext = React.createContext(user);
-
 const ThemeContext = React.createContext('light');
 
 class ThemedButton extends React.Component {
