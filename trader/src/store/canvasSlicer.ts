@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const userSlice = createSlice({
-  name: 'user',
+export const canvasSlicer = createSlice({
+  name: 'canvas',
   initialState: {
     value: 0,
     toolbar: {
@@ -25,7 +25,6 @@ export const userSlice = createSlice({
     }
   },
   reducers: {
-    
     startBuildProcess: (state) => {
       state.value += 1
     },
@@ -48,6 +47,7 @@ export const userSlice = createSlice({
   },
 })
 
-export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp } = userSlice.actions
+// Action creators are generated for each case reducer function
+export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp } = canvasSlicer.actions
 
-export default userSlice.reducer
+export default canvasSlicer.reducer

@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { NavigationBar } from './trader/navigationBar';
 import { BottomBar } from './trader/bottomNav';
 import { Page } from '../themes/countContext';
-import { ErrorBoundary } from "./boundary/errorBoundary";
+import { ErrorBoundary } from "./errorBoundary/errorBoundary";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

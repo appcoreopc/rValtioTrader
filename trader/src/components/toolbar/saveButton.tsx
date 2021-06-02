@@ -3,7 +3,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux'
-import { saveApp } from '../../store/toolbarSlicer';
+import { saveApp } from '../../store/appbarSlicer';
 import { ToolBarButtonsState } from './toolBarButtonsState';
 
 export const SaveButton: React.FC<ToolBarButtonsState> = ({data}) => {

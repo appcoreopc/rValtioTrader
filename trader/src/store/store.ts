@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import toolBarReducer from './toolbarSlicer';
-import { createStore, applyMiddleware } from 'redux';
+import toolBarReducer from './appbarSlicer';
 import createSagaMiddleware from 'redux-saga';
 import mySaga from './sagas';
 

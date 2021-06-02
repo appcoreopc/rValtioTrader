@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const toolBarSlice = createSlice({
+export const appBarSlice = createSlice({
   name: 'toolbar',
   initialState: {
     value: 0,
@@ -25,7 +25,6 @@ export const toolBarSlice = createSlice({
     }
   },
   reducers: {
-    
     startBuildProcess: (state) => {
       state.value += 1
     },
@@ -49,6 +48,6 @@ export const toolBarSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp } = toolBarSlice.actions
+export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp } = appBarSlice.actions
 
-export default toolBarSlice.reducer
+export default appBarSlice.reducer

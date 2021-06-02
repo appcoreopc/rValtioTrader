@@ -3,7 +3,7 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux'
-import { startBuildProcess, cancelBuildProcess, getBuildStatus } from '../../store/toolbarSlicer';
+import { startBuildProcess, cancelBuildProcess, getBuildStatus } from '../../store/appbarSlicer';
 import { ToolBarButtonsState } from './toolBarButtonsState';
 
 export const BuildButton: React.FC<ToolBarButtonsState> = ({data}) => {
