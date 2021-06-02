@@ -12,6 +12,7 @@ export const UploadAssetButton : React.FC<ToolBarButtonsState>= ({data}) => {
     return (
       <>
         <Button
+        disabled={enabled}
         variant="contained"
         color="primary"
         size="small"

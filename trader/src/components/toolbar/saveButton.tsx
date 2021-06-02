@@ -14,12 +14,13 @@ export const SaveButton: React.FC<ToolBarButtonsState> = ({data}) => {
 
     return (
       <>
-        <Button disabled={enabled}
+        <Button 
+        disabled={enabled}
         variant="contained"
         color="primary"
         size="small"
         className={classes.menuButton} 
-        onClick={() => dispatch(saveApp())}
+        onClick={() => dispatch(saveApp(9))}
         startIcon={<SaveIcon />}>Save</Button>
       </>
     );

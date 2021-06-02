@@ -11,6 +11,11 @@ export interface ToolBarButtonsState  {
       }, 
       upload: {
         status: string
+      },
+      openLoadApp : {
+        status : string, 
+        appName : string, 
+        appId : string
       }
     }
   }

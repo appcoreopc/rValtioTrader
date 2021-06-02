@@ -11,11 +11,10 @@ export const BuildButton: React.FC<ToolBarButtonsState> = ({data}) => {
   const [enabled, setActive] = useState(false);
   const dispatch = useDispatch();
   
-  console.log(data);
-  
   return (
     <>
     <Button
+    disabled={enabled}
     variant="contained"
     color="primary"
     size="small"

@@ -11,7 +11,8 @@ export const ZoomButton : React.FC<ToolBarButtonsState>  = ({data}) => {
   
   return (
     <>
-    <Button disabled={enabled}
+    <Button 
+    disabled={enabled}
     variant="contained"
     color="primary"
     size="small"
