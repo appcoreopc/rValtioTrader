@@ -15,4 +15,11 @@ function* fetchUser(action: any) {
    yield takeLatest("toolbar/decrement", fetchUser);
  }
  
+// supporting multiple sagas 
+//  function* rootSaga () {
+//    yield [
+//        fork(saga1), // saga1 can also yield [ fork(actionOne), fork(actionTwo) ]
+//        fork(saga2),
+//    ];
+// }
  export default mySaga;
