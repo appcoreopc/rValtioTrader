@@ -18,6 +18,10 @@ createStyles({
   root: {
     display: 'flex',
   },
+  imageList: {
+    width : 120, 
+    height : 120
+  }, 
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
@@ -66,7 +70,7 @@ export function ResponsiveDrawer(props: Props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -85,10 +89,9 @@ export function ResponsiveDrawer(props: Props) {
     <Typography className={classes.heading}>Image Library</Typography>
     </AccordionSummary>
     <AccordionDetails>
-      <ImageList images={images} />
+    <ImageList images={images} style={{width : 120, height : 120}} />
     <Typography>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-    sit amet blandit leo lobortis eget.
+    
     </Typography>
     </AccordionDetails>
     </Accordion>
