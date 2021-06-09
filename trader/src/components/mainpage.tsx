@@ -7,7 +7,7 @@ import { ErrorBoundary } from "./errorBoundary/errorBoundary";
 import { ResponsiveDrawer } from "./trader/appdevToolbar";
 import Dropzone from "./dragdrop/dragdropZone";
 import ImageList from "./dragdrop/imageList";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import cuid from "cuid";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -51,21 +51,17 @@ export const MainPage = (props:any) => {
   return (
     <div className={classes.root}>
     <ErrorBoundary>
-    
         <NavigationBar />
         
-          <ResponsiveDrawer/>
-          <Grid container spacing={3}>
+          <ResponsiveDrawer images={images}/>
+      
           <Grid item xs={12}>
+      
           <Page />
-
 
           <h1 className="text-center">Drag and Drop Example</h1>
           <Dropzone onDrop={onDrop} accept={"image/*"} />
-          <ImageList images={images} />
 
-
-          </Grid>
           </Grid>
         
         <BottomBar></BottomBar>
