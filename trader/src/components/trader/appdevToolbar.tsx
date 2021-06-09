@@ -80,7 +80,7 @@ export function ResponsiveDrawer(props: Props) {
     <div className={classes.toolbar} />
     <Divider />
     
-    <Accordion>
+    <Accordion expanded={true}>
     <AccordionSummary
     expandIcon={<ExpandMoreIcon />}
     aria-controls="panel1a-content"
@@ -96,12 +96,12 @@ export function ResponsiveDrawer(props: Props) {
     </AccordionDetails>
     </Accordion>
     <Accordion>
-    <AccordionSummary
+    <AccordionSummary 
     expandIcon={<ExpandMoreIcon />}
     aria-controls="panel2a-content"
     id="panel2a-header"
     >
-    <Typography className={classes.heading}>Template</Typography>
+    <Typography className={classes.heading}>Default Template</Typography>
     </AccordionSummary>
     <AccordionDetails>
     <Typography>
