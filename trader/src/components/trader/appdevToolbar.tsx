@@ -10,6 +10,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ImageList from "../dragdrop/imageList";
+import { useAppSelector, useAppDispatch } from '../../store/hook';
 
 const drawerWidth = 240;
 
@@ -66,11 +67,24 @@ interface Props {
 }
 
 export function ResponsiveDrawer(props: Props) {
+  
   const { window , images} = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  
+
+  let imagesdata=[];
+  let data = useAppSelector((state: any) => state);
+  imagesdata = data?.toolBar?.imageAsset?.images;
+
+  if (imagesdata == undefined)
+  {
+     imagesdata = [];
+  }
+     debugger;
+     console.log("imagesdata");
+     console.log(imagesdata);
+     
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -89,7 +103,7 @@ export function ResponsiveDrawer(props: Props) {
     <Typography className={classes.heading}>Image Library</Typography>
     </AccordionSummary>
     <AccordionDetails>
-    <ImageList images={images} style={{width : 120, height : 120}} />
+    <ImageList images={imagesdata} style={{width : 120, height : 120}} />
     <Typography>
     
     </Typography>

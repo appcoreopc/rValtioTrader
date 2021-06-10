@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback  } from 'react';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
@@ -8,12 +8,18 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import cuid from "cuid";
+import Dropzone from '../dragdrop/dragdropZone';
+import { useDispatch } from 'react-redux'
+import { loadImageAsset } from '../../store/appbarSlicer';
+import ImageList from '../dragdrop/imageList';
 
 export const UploadAssetButton : React.FC<ToolBarButtonsState>= ({data}) => {
     
     const classes = useStyles();
     const [enabled, setActive] = useState();
     const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
 
     const [selectedFile, setSelectedFile] = useState<string | Blob>("");
 	  const [isFilePicked, setIsFilePicked] = useState(false);
@@ -51,31 +57,58 @@ export const UploadAssetButton : React.FC<ToolBarButtonsState>= ({data}) => {
     };
 
     const handleClose = () => {
+      debugger;
+      dispatch(loadImageAsset(images));
+
       setOpen(false);
     };
+
+    const [images, setImages] = useState<any>([]);
+
+    const onDrop = useCallback(acceptedFiles => {
+      // Loop through accepted files
+      acceptedFiles.map((file: any) => {
+        // Initialize FileReader browser API
+        const reader = new FileReader();
+        // onload callback gets called after the reader reads the file data
+        reader.onload = function(e:any) {
+          // add the image into the state. Since FileReader reading process is asynchronous, its better to get the latest snapshot state (i.e., prevState) and update it. 
+          setImages((prevState:any) => [
+            ...prevState,
+            { id: cuid(), src: e.target.result }
+          ]);
+
+
+        };
+        // Read the file as Data URL (since we accept only images)
+        reader.readAsDataURL(file);
+
+        return file;
+      });
+    }, []);
 
 
     return (
       <>
-
         <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        aria-describedby="alert-dialog-description">
+
+        <DialogTitle id="alert-dialog-title">{"Please choose your image asset to upload?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Drag and drop a file into this area
+
+              <Dropzone onDrop={onDrop} accept={"image/*"} />
+          
           </DialogContentText>
         </DialogContent>
         <DialogActions>
 
-        <input type="file" name="file" onChange={changeHandler} />
-
-          <Button onClick={handleUpload} color="primary">
-            Upload
+      
+          <Button onClick={handleClose} color="primary">
+            Done
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
             Cancel

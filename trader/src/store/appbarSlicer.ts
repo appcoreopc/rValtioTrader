@@ -22,6 +22,9 @@ export const appBarSlice = createSlice({
         appName : '', 
         appId : ''
       }
+    },
+    imageAsset : {
+      images: [{}]
     }
   },
   reducers: {
@@ -31,6 +34,10 @@ export const appBarSlice = createSlice({
     cancelBuildProcess: (state) => {
       console.log('cancel build process');
       state.value -= 1
+    },
+    loadImageAsset: (state, action : PayloadAction<any[]>) => {
+      console.log('Loading image assets');
+      state.imageAsset.images =  action.payload;
     },
     getBuildStatus: (state, action : PayloadAction<number>) => {
       state.value += action.payload
@@ -48,6 +55,6 @@ export const appBarSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp } = appBarSlice.actions
+export const { startBuildProcess, cancelBuildProcess, getBuildStatus, zoomIn, zoomOut, saveApp, loadImageAsset } = appBarSlice.actions
 
 export default appBarSlice.reducer

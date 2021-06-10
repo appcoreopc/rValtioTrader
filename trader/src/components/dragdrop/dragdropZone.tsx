@@ -2,7 +2,7 @@ import { useDropzone } from "react-dropzone";
 
 interface DragDropType { 
     onDrop : any,
-    accept : any
+    accept : string 
 }
   
 const Dropzone = ({ onDrop, accept }: DragDropType) => {

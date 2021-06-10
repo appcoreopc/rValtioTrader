@@ -59,8 +59,8 @@ export const MainPage = (props:any) => {
       
           <Page />
 
-          <h1 className="text-center">Drag and Drop Example</h1>
-          <Dropzone onDrop={onDrop} accept={"image/*"} />
+          {/* <h1 className="text-center">Drag and Drop Example</h1>
+          <Dropzone onDrop={onDrop} accept={"image/*"} /> */}
 
           </Grid>
         
