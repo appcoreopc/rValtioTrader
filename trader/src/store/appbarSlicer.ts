@@ -24,7 +24,7 @@ export const appBarSlice = createSlice({
       }
     },
     imageAsset : {
-      images: [{}]
+      images : {}
     }
   },
   reducers: {
