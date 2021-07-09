@@ -2,28 +2,26 @@ import React, { useState } from 'react';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import { useStyles } from './style';
 import Button from '@material-ui/core/Button';
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from '../../store/toolbarSlicer';
+import { useDispatch } from 'react-redux'
+import { startBuildProcess, cancelBuildProcess, getBuildStatus } from '../../store/appbarSlicer';
+import { ToolBarButtonsState } from './toolBarButtonsState';
 
-export const BuildButton = () => {
-    
-    const classes = useStyles();
-    const [enabled, setActive] = useState(false);
-
-    const count = useSelector((state) => state);
-    const dispatch = useDispatch();
-   
-    console.log("data");
-    console.log(count);
-    
-    return (
-      <>
-        <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        className={classes.menuButton} onClick={() => { alert('clicked') }}
-        startIcon={<PlayArrowIcon />}>Build</Button>
-      </>
+export const BuildButton: React.FC<ToolBarButtonsState> = ({data}) => {
+  const classes = useStyles();
+  const [enabled, setActive] = useState(false);
+  const dispatch = useDispatch();
+  
+  return (
+    <>
+    <Button
+    disabled={enabled}
+    variant="contained"
+    color="primary"
+    size="small"
+    className={classes.menuButton} onClick={() => { 
+      dispatch(startBuildProcess());
+    }}
+    startIcon={<PlayArrowIcon />}>Build</Button>
+    </>
     );
   }
